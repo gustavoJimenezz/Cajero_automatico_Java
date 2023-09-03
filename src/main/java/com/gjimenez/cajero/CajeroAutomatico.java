@@ -1,5 +1,6 @@
 package com.gjimenez.cajero;
 
+import com.gjimenez.banco.CuentaAhorro;
 import com.gjimenez.banco.CuentaBancaria;
 import com.gjimenez.mock.GeneradorAleatorioDeMovimientos;
 
@@ -12,7 +13,7 @@ public class CajeroAutomatico {
     private CuentaBancaria cuentaBancariaActual;
     protected CajeroAutomatico(String identificador, String contra){
         double cantindadAleatoria = ThreadLocalRandom.current().nextDouble(0,1000);
-        cuentaBancariaActual = new CuentaBancaria("Gustavo", cantindadAleatoria);
+        cuentaBancariaActual = new CuentaAhorro("Gustavo", cantindadAleatoria);
     }
 
     protected void mostrarSaldo(){
@@ -49,6 +50,10 @@ public class CajeroAutomatico {
         for (String mov:movimientos){
             System.out.println(mov);
         }
+    }
+
+    void informarSobreCondicionesLegales(){
+        cuentaBancariaActual.informarSobreCondicionesLegales();
     }
 
     protected void salir(){

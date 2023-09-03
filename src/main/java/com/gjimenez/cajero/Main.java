@@ -24,6 +24,7 @@ public class Main {
             System.out.println("2 - Ingresar dinero");
             System.out.println("3 - Sacar dinero");
             System.out.println("4 - Consultar ultimos movimientos");
+            System.out.println("5 - Informar sobre condiciones legales");
             System.out.println("6 - salir");
             opcionSeleccionada = scanner.nextInt();
 
@@ -40,9 +41,12 @@ public class Main {
                 case 4:
                     cajero.consultarUltimosMovimientos();
                     break;
+                case 5:
+                    cajero.informarSobreCondicionesLegales();
+                    break;
                 default:
                     cajero.salir();
             }
-        } while (opcionSeleccionada == 1 || opcionSeleccionada == 2 || opcionSeleccionada == 3);
+        } while (opcionSeleccionada == 1 || opcionSeleccionada == 2 || opcionSeleccionada == 3|| opcionSeleccionada == 4|| opcionSeleccionada == 5);
     }
 }

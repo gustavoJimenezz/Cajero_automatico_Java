@@ -1,9 +1,9 @@
 package com.gjimenez.banco;
 
-public class CuentaBancaria {
+public abstract class CuentaBancaria {
     private String titular;
     private TiposCuenta tipoCuenta;
-    private double saldo;
+    protected double saldo;
     private final double COMISION = 1.2;
 
     public CuentaBancaria(String t, TiposCuenta tipo, double s){
@@ -38,6 +38,8 @@ public class CuentaBancaria {
     public double obtenerSaldo(){
         return saldo;
     }
+
+    public abstract void informarSobreCondicionesLegales();
 
 }
 
