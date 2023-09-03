@@ -1,3 +1,5 @@
+package com.gjimenez.cajero;
+
 import java.util.Scanner;
 
 public class Main {

@@ -1,19 +1,27 @@
+package com.gjimenez.cajero;
+
+import com.gjimenez.banco.CuentaBancaria;
+import com.gjimenez.mock.GeneradorAleatorioDeMovimientos;
+
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class CajeroAutomatico {
-    CuentaBancaria cuentaBancariaActual;
-    CajeroAutomatico(String identificador, String contra){
+    private CuentaBancaria cuentaBancariaActual;
+    protected CajeroAutomatico(String identificador, String contra){
         double cantindadAleatoria = ThreadLocalRandom.current().nextDouble(0,1000);
         cuentaBancariaActual = new CuentaBancaria("Gustavo", cantindadAleatoria);
     }
 
-    void mostrarSaldo(){
-        System.out.println("Saldo Actual : " + cuentaBancariaActual.obtenerSaldo());
+    protected void mostrarSaldo(){
+        DecimalFormat format = new DecimalFormat("#.00");
+        String saldo = format.format(cuentaBancariaActual.obtenerSaldo());
+        System.out.println("Saldo Actual : " + saldo);
     }
 
-    void  ingresarDinero(){
+    protected void  ingresarDinero(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("** INGRESAR DINERO **");
         System.out.println("Ingrese : ");
@@ -21,7 +29,7 @@ public class CajeroAutomatico {
         cuentaBancariaActual.ingresarDinero(dineroIngresado);
     }
 
-    void  sacarDinero(){
+    protected void sacarDinero(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("** SACAR DINERO **");
         System.out.println("Ingrese : ");
@@ -29,7 +37,7 @@ public class CajeroAutomatico {
         cuentaBancariaActual.sacarDinero(dineroIngresado);
     }
 
-    void consultarUltimosMovimientos(){
+    protected void consultarUltimosMovimientos(){
         GeneradorAleatorioDeMovimientos generadorAleatorioDeMovimientos = new GeneradorAleatorioDeMovimientos();
         System.out.println("Cuantos movimientos quiere consultar? : ");
         Scanner scanner = new Scanner(System.in);
@@ -37,13 +45,13 @@ public class CajeroAutomatico {
         ArrayList<String> movimientos = generadorAleatorioDeMovimientos.obtenerMovimiento(cantMovimientos, "euros");
         mostrarMovimientos(movimientos);
     }
-    void mostrarMovimientos(ArrayList<String> movimientos){
+    private void mostrarMovimientos(ArrayList<String> movimientos){
         for (String mov:movimientos){
             System.out.println(mov);
         }
     }
 
-    void salir(){
+    protected void salir(){
         System.out.println("Muchas gracias, hasta luego !");
     }
 }
