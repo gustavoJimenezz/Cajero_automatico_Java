@@ -7,16 +7,6 @@ Este proyecto simula un **Cajero Automático (ATM)** en Java, permitiendo al usu
 - Retirar dinero
 - Salir del programa
 
-## Estructura del proyecto
-
-
-src/
-│ └─ main/java/com/gjimenez/
-│ ├─ Cuenta.java # Maneja la lógica de la cuenta
-│ └─ CajeroAutomatico.java # Interfaz de usuario y flujo principal
-│
-└─ README.md # Este archivo
-
 ## Clases importantes
 
 ### 1. `Cuenta.java`
