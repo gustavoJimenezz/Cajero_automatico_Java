@@ -8,8 +8,9 @@ Este proyecto simula un **Cajero Automático (ATM)** en Java, permitiendo al usu
 - Salir del programa
 
 ## Estructura del proyecto
-│
-├─ src/
+
+
+src/
 │ └─ main/java/com/gjimenez/
 │ ├─ Cuenta.java # Maneja la lógica de la cuenta
 │ └─ CajeroAutomatico.java # Interfaz de usuario y flujo principal
@@ -35,7 +36,7 @@ Cuenta cuenta = new Cuenta(1000);
 cuenta.depositar(500);
 cuenta.retirar(200);
 System.out.println(cuenta.getSaldo());
-
+```
 --------------------------------------
 
 ### `Cuenta.java`
@@ -77,3 +78,4 @@ switch (opcion) {
     default:
         System.out.println("Opción no válida.");
 }
+```
